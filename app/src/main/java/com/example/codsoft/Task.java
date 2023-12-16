@@ -1,11 +1,11 @@
 package com.example.codsoft;
 
 public class Task {
-    public String title;
-    public String description;
-    public String date;
-    public String time;
-    public int radioButton;
+    private String title;
+    private String description;
+    private String date;
+    private String time;
+    private int radioButton;
     public Task(String title, String description, String date, String time, int radioButton) {
         this.title = title;
         this.description = description;
@@ -14,8 +14,47 @@ public class Task {
         this.radioButton = radioButton;
     }
 
-    // Constructor without description (making description optional)
     public Task(String title, String date, String time, int radioButton) {
-        this(title, "", date, time, radioButton); // Assigns an empty string or null to description
+        this(title, "", date, time, radioButton);
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public int getRadioButton() {
+        return radioButton;
+    }
+
+    public void setRadioButton(int radioButton) {
+        this.radioButton = radioButton;
     }
 }
