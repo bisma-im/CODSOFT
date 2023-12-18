@@ -5,17 +5,17 @@ public class Task {
     private String description;
     private String date;
     private String time;
-    private int radioButton;
-    public Task(String title, String description, String date, String time, int radioButton) {
+    private boolean completionStatus;
+    public Task(String title, String description, String date, String time) {
         this.title = title;
         this.description = description;
         this.date = date;
         this.time = time;
-        this.radioButton = radioButton;
+        this.completionStatus = false;
     }
 
-    public Task(String title, String date, String time, int radioButton) {
-        this(title, "", date, time, radioButton);
+    public Task(String title, String date, String time) {
+        this(title, "", date, time);
     }
 
     public String getTitle() {
@@ -50,11 +50,11 @@ public class Task {
         this.time = time;
     }
 
-    public int getRadioButton() {
-        return radioButton;
+    public boolean getCompletionStatus() {
+        return completionStatus;
     }
 
-    public void setRadioButton(int radioButton) {
-        this.radioButton = radioButton;
+    public void setCompletionStatus(boolean completionStatus) {
+        this.completionStatus = completionStatus;
     }
 }

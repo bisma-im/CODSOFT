@@ -1,22 +1,27 @@
 package com.example.codsoft;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TimePicker;
+import android.widget.Toast;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
 
 public class NewTask extends AppCompatActivity {
 
-    EditText title;
-    EditText description;
-    Button date;
-    Button time;
-    Button addTask;
+    EditText title,description;
+    Button date,time,addTask;
+    String timeText,dateText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +45,42 @@ public class NewTask extends AppCompatActivity {
                 openTimeDialog();
             }
         });
+
+        addTask.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String taskTitle = title.getText().toString();
+                String taskDescription = description.getText().toString();
+
+                if(taskTitle.isEmpty() || dateText == null || timeText == null) {
+                    Toast.makeText(NewTask.this, "Please enter title, date, and time.", Toast.LENGTH_LONG).show();
+                    return;
+                }
+                else {
+                    Task newTask = new Task(taskTitle, taskDescription, dateText, timeText);
+                    Gson gson = new Gson();
+                    SharedPreferences sharedPreferences = getSharedPreferences(ToDoListMainActivity.PREFS_NAME, MODE_PRIVATE);
+                    String jsonTasks = sharedPreferences.getString("tasks", null);
+
+                    ArrayList<Task> tasks;
+                    if (jsonTasks != null) {
+                        Type type = new TypeToken<ArrayList<Task>>(){}.getType();
+                        tasks = gson.fromJson(jsonTasks, type);
+                    } else {
+                        tasks = new ArrayList<>();
+                    }
+
+                    tasks.add(newTask);
+                    String json = gson.toJson(tasks);
+
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putString("tasks", json);
+                    editor.apply();
+                }
+                finish();
+            }
+        });
     }
 
     private void openTimeDialog() {
@@ -48,8 +89,9 @@ public class NewTask extends AppCompatActivity {
             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                 String newTime = hourOfDay+":" + minute;
                 time.setText(newTime);
+                timeText = newTime;
             }
-        },6, 37, true);
+        },6, 37, false);
         timePickerDialog.show();
     }
 
@@ -59,6 +101,7 @@ public class NewTask extends AppCompatActivity {
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                 String newDate = dayOfMonth +"/" +(month+1) + "/" + year;
                 date.setText(newDate);
+                dateText = newDate;
             }
         }, 2023, 12, 16);
         datePickerDialog.show();

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="7">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="1.5dp"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:background="@drawable/borders_linear_layout"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/cellDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="12-12-23"
+                android:textStyle="bold"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/cellTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="12:40"
+                android:textStyle="bold"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/cellTitle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="1.5dp"
+            android:layout_weight="4"
+            android:gravity="center_vertical"
+            android:padding="5dp"
+            android:textStyle="bold"
+            android:background="@drawable/borders_linear_layout"
+            android:text="Dentist Appointment"
+            android:textSize="15sp" />
+
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="1.5dp"
+            android:layout_weight="1"
+            android:background="@drawable/borders_linear_layout"
+            android:padding="5dp" />
+
+    </LinearLayout>
+</LinearLayout>
