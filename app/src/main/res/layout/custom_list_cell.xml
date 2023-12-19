@@ -8,15 +8,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:padding="5dp"
+        android:background="@drawable/borders_linear_layout"
         android:weightSum="7">
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="1.5dp"
-            android:layout_weight="2"
+            android:layout_weight="1"
             android:gravity="center"
-            android:background="@drawable/borders_linear_layout"
+            android:background="@color/checkmark_color"
             android:orientation="vertical">
 
             <TextView
@@ -24,8 +26,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="5dp"
-                android:text="12-12-23"
+                android:text="12 Jan"
                 android:textStyle="bold"
+                android:textColor="@color/white"
                 android:textSize="12sp" />
 
             <TextView
@@ -35,19 +38,21 @@
                 android:padding="5dp"
                 android:text="12:40"
                 android:textStyle="bold"
+                android:textColor="@color/white"
                 android:textSize="12sp" />
         </LinearLayout>
+
 
         <TextView
             android:id="@+id/cellTitle"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="1.5dp"
-            android:layout_weight="4"
+            android:layout_weight="5"
             android:gravity="center_vertical"
             android:padding="5dp"
             android:textStyle="bold"
-            android:background="@drawable/borders_linear_layout"
+
             android:text="Dentist Appointment"
             android:textSize="15sp" />
 
@@ -57,7 +62,7 @@
             android:layout_height="match_parent"
             android:layout_margin="1.5dp"
             android:layout_weight="1"
-            android:background="@drawable/borders_linear_layout"
+            android:buttonTint="@color/checkmark_color"
             android:padding="5dp" />
 
     </LinearLayout>

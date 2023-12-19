@@ -14,7 +14,9 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class NewTask extends AppCompatActivity {
 
@@ -99,7 +101,14 @@ public class NewTask extends AppCompatActivity {
         DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                String newDate = dayOfMonth +"/" +(month+1) + "/" + year;
+
+//                String newDate = dayOfMonth +"/" +(month+1) + "/" + year;
+//                date.setText(newDate);
+//                dateText = newDate;
+
+                Calendar calendar = Calendar.getInstance();
+                calendar.set(year, month, dayOfMonth);
+                String newDate = new SimpleDateFormat("dd MMM yy").format(calendar.getTime());
                 date.setText(newDate);
                 dateText = newDate;
             }

@@ -24,7 +24,6 @@ public class TaskAdapter extends ArrayAdapter<Task> {
         TextView tvTime = convertView.findViewById(R.id.cellTime);
         CheckBox checkBox = convertView.findViewById(R.id.checkBox);
 
-        // Populate the data into the template view using the data object
         tvTitle.setText(task.getTitle());
         tvDate.setText(task.getDate());
         tvTime.setText(task.getTime());
