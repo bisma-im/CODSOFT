@@ -5,12 +5,62 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:padding="5dp"
     tools:context=".TaskView">
 
     <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/delete"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:contentDescription="delete button"
-        android:src="@android:drawable/ic_menu_delete"/>
+        android:scaleType="fitCenter"
+        android:background="#00000000"
+        android:layout_gravity="right"
+        android:layout_margin="4dp"
+        android:src="@drawable/delete_button" />
+
+    <EditText
+        android:id="@+id/editTitle"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:inputType="text"
+        android:background="@null"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
+        android:textSize="20sp"
+        android:layout_margin="4dp"
+        android:text="Title" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginLeft="25dp"
+        android:background="#e83b49"/>
+
+    <EditText
+        android:id="@+id/editDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:background="@null"
+        android:layout_weight="1"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
+        android:paddingTop="5dp"
+        android:textSize="15sp"
+        android:gravity="start"
+        android:layout_margin="4dp"
+        android:hint="Description" />
+
+    <Button
+        android:id="@+id/done"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:textSize="15sp"
+        android:textColor="@color/white"
+        android:layout_margin="25dp"
+        android:backgroundTint="#e83b49"
+        android:layout_gravity="center_horizontal"
+        android:text="Done" />
 </LinearLayout>
