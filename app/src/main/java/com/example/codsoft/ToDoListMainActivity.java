@@ -26,6 +26,7 @@ public class ToDoListMainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 SharedPreferences.Editor editor = sp.edit();
+                editor.putString("userName",name.getText().toString());
                 editor.putBoolean("hasRegistered", true);
                 editor.commit();
 
